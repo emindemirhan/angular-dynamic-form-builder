@@ -70,18 +70,20 @@
           ></textarea>
         </div>
         <div *ngIf="control.type === 'dynamic'">
-          <label class="form-label">{{ control.label }}</label>
-          <div class="form-check" *ngFor="let option of control.options">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              [id]="option.value"
-              formControlName="{{ control.name }}"
-              [value]="option.value"
-            />
-            <label class="form-check-label" [for]="option.value">{{
-              option.label
-            }}</label>
+          <label>{{ control.label }}</label>
+          <div class="form-check" formArrayName="{{ control.name }}">
+            <div *ngFor="let opt of control.options">
+              <input
+                [formControlName]="opt.value || ' '"
+                [id]="opt.value"
+                class="form-check-input"
+                type="checkbox"
+                [value]="opt.value"
+              />
+              <label class="form-check-label" [for]="opt.value">{{
+                opt.label
+              }}</label>
+            </div>
           </div>
         </div>
       </ng-container>

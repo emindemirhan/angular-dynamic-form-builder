@@ -30,7 +30,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   initializeForm(): void {
-    let formGroup: { [key: string]: [any, any[]] } = {};
+    let formGroup: { [key: string]: any } = {};
     this.source.formControls.forEach((section) => {
       if (section.fields) {
         section.fields.forEach((control: DynamicFormControl) => {
@@ -52,11 +52,18 @@ export class DynamicFormComponent implements OnInit {
               controlValidators.push(Validators.maxLength(val.maxLength ?? 0));
             }
           });
-
-          formGroup[control.name ?? ''] = [
-            control.value || '',
-            controlValidators,
-          ];
+          if (control.type === 'dynamic') {
+            let dynamicControls: { [key: string]: any } = {};
+            control.options?.forEach((option) => {
+              dynamicControls[option.value!] = this.fb.control(false);
+            });
+            formGroup[control.name ?? ''] = this.fb.group(dynamicControls);
+          } else {
+            formGroup[control.name ?? ''] = [
+              control.value || '',
+              controlValidators,
+            ];
+          }
         });
       }
     });
