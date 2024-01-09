@@ -2,13 +2,14 @@
   #myForm="ngForm"
   (submit)="onSubmit(dynamicFormGroup)"
   [formGroup]="dynamicFormGroup"
-  class="row g-3"
+  class="row g-3 px-5 mt-3"
 >
   <ng-container *ngFor="let section of source.formControls">
-    <div *ngIf="section.fields">
+    <div class="row" *ngIf="section.fields">
       <h3>{{ section.label }}</h3>
       <ng-container *ngFor="let control of section.fields">
         <div
+          class=""
           *ngIf="
             ['text', 'email', 'password', 'number', 'date'].includes(
               control.type
@@ -21,6 +22,7 @@
             class="form-control"
             [type]="control.type"
             [mask]="control.mask"
+            [id]="control.name"
           />
 
           <small
@@ -38,7 +40,7 @@
           <select
             formControlName="{{ control.name }}"
             class="form-select"
-            id=""
+            [id]="control.name"
           >
             <option selected value="">Choose...</option>
             <ng-container *ngFor="let option of control.options">
@@ -64,6 +66,7 @@
         <div *ngIf="control.type === 'textarea'">
           <label class="form-label mt-2">{{ control.label }}</label>
           <textarea
+            [id]="control.name"
             formControlName="{{ control.name }}"
             class="form-control"
           ></textarea>
@@ -92,10 +95,12 @@
     <button
       class="btn btn-secondary mx-2"
       (click)="resetFormValue()"
-      type="button"
+      type="reset"
+      [disabled]="dynamicFormGroup.pristine && dynamicFormGroup.untouched"
     >
       {{ source.resetButtonTitle }}
     </button>
+
     <button class="btn btn-primary mx-2" type="submit">
       {{ source.saveButtonTitle }}
     </button>

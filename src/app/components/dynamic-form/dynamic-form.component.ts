@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicFormBuilder } from 'src/app/modules/DynamicFormBuilder';
-import { DynamicFormControl } from 'src/app/modules/DynamicFormControl';
 import { DynamicFormFields } from 'src/app/modules/DynamicFormFields';
 import { DynamicValidators } from 'src/app/modules/DynamicValidators';
 
@@ -78,6 +77,9 @@ export class DynamicFormComponent implements OnInit {
 
   resetFormValue() {
     this.dynamicFormGroup.reset();
+    this.dynamicFormGroup.markAsPristine();
+    this.dynamicFormGroup.markAsUntouched();
+    this.dynamicFormGroup.updateValueAndValidity();
   }
 
   getValidationErrors(control: DynamicFormFields): string {

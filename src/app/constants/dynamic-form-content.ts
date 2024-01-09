@@ -70,7 +70,6 @@ export const FormContent: DynamicFormBuilder = {
         {
           type: 'select',
           label: 'Country',
-
           name: 'country',
           options: [
             {
