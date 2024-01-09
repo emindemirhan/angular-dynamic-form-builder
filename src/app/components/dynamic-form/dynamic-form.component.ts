@@ -9,6 +9,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DynamicFormBuilder } from 'src/app/modules/DynamicFormBuilder';
 import { DynamicFormControl } from 'src/app/modules/DynamicFormControl';
+import { DynamicFormFields } from 'src/app/modules/DynamicFormFields';
 import { DynamicValidators } from 'src/app/modules/DynamicValidators';
 
 @Component({
@@ -33,7 +34,7 @@ export class DynamicFormComponent implements OnInit {
     let formGroup: { [key: string]: any } = {};
     this.source.formControls.forEach((section) => {
       if (section.fields) {
-        section.fields.forEach((control: DynamicFormControl) => {
+        section.fields.forEach((control: DynamicFormFields) => {
           let controlValidators: any[] = [];
           control.validators?.forEach((val: DynamicValidators) => {
             if (val.validatorName === 'required') {
@@ -79,7 +80,7 @@ export class DynamicFormComponent implements OnInit {
     this.dynamicFormGroup.reset();
   }
 
-  getValidationErrors(control: DynamicFormControl): string {
+  getValidationErrors(control: DynamicFormFields): string {
     let errorMessage: string = '';
     const dynamicFormControl = this.dynamicFormGroup.get(control.name ?? '');
 

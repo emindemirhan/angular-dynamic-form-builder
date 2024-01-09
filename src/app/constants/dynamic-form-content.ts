@@ -3,7 +3,7 @@ import { DynamicFormBuilder } from '../modules/DynamicFormBuilder';
 export const FormContent: DynamicFormBuilder = {
   formTitle: 'Dynamic Form Builder',
   saveButtonTitle: 'Register',
-  resetButtonTitle: 'Reset Form Values',
+  resetButtonTitle: 'Reset Form',
   formControls: [
     {
       type: 'section',
