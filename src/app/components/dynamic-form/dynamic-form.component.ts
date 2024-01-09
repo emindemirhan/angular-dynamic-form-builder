@@ -18,7 +18,7 @@ import { DynamicValidators } from 'src/app/modules/DynamicValidators';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() source!: DynamicFormBuilder;
-  @Output() submit: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
+  @Output() submitForm: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   fb = inject(FormBuilder);
   dynamicFormGroup: FormGroup = this.fb.group({});
@@ -72,7 +72,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup): void {
-    this.submit.emit(form);
+    this.submitForm.emit(form);
   }
 
   resetFormValue() {

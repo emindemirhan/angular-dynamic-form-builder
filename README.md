@@ -1,28 +1,44 @@
-# AngularDynamicFormBuilder
+# Angular Dynamic Form Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+This project is an Angular application that demonstrates the implementation of a dynamic form builder. The application allows users to create forms with various types of fields dynamically.
 
-## Development server
+## Project Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run the project locally, follow these steps:
 
-## Code scaffolding
+1. Clone the repository to your local machine.
+2. Navigate to the project directory using the command line.
+3. Run `npm install` to install the project dependencies.
+4. Run `npm start` to start the development server.
+5. Open your browser and visit `http://localhost:4200/` to view the application.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Running Cypress for End-to-End Testing
 
-## Build
+After the project is running, you can run end-to-end tests using Cypress:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Open a new terminal.
+2. Run `npm run cy:run` to execute Cypress tests in headless mode.
+   OR
+   Run `npx cypress open` to open the Cypress Test Runner and interactively run tests.
 
-## Running unit tests
+Make sure the application is running before running Cypress tests.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Key Functionalities
 
-## Running end-to-end tests
+- **Dynamic Form Creation**: Users can dynamically create forms by providing a JSON config, adding different types of fields such as text, email, password, number, date, select, checkbox, and textarea.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Validation**: Each form field supports validation rules, including required, email, minimum length, maximum length, and custom patterns.
 
-## Further help
+- **Submission and Reset**: Users can submit the form, and the application will display validation errors if any. Additionally, a reset button allows users to clear the form.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# angular-dynamic-form-builder
+## Coding Standards
+
+- **Angular**: The project follows Angular best practices and adheres to the official style guide.
+
+- **TypeScript**: The code is written in TypeScript, ensuring type safety and maintainability.
+
+- **Cypress for E2E Testing**: Cypress is used for end-to-end testing to ensure the reliability of the application.
+
+- **Prettier**: The codebase is formatted using Prettier to maintain a consistent and clean coding style.
+-
+- **ESLint**: ESLint is configured with standard rules to enforce coding standards. Run `npm run lint` to check for linting issues.
