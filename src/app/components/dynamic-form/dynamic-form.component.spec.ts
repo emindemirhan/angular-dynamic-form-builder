@@ -8,7 +8,7 @@ describe('DynamicFormComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DynamicFormComponent]
+      declarations: [DynamicFormComponent],
     });
     fixture = TestBed.createComponent(DynamicFormComponent);
     component = fixture.componentInstance;

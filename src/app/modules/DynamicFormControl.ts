@@ -8,7 +8,7 @@ export interface DynamicFormControl {
   name?: string;
   required?: boolean;
   validators?: DynamicValidators[];
-  class?: string;
+
   mask?: string;
   options?: Options[];
   fields?: DynamicFormControl[];

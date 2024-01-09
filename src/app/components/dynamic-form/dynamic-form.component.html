@@ -14,7 +14,6 @@
               control.type
             )
           "
-          [ngClass]="control.class"
         >
           <label class="form-label">{{ control.label }}</label>
           <input
@@ -97,11 +96,7 @@
     >
       {{ source.resetButtonTitle }}
     </button>
-    <button
-      class="btn btn-primary mx-2"
-      [disabled]="dynamicFormGroup.invalid"
-      type="submit"
-    >
+    <button class="btn btn-primary mx-2" type="submit">
       {{ source.saveButtonTitle }}
     </button>
   </div>

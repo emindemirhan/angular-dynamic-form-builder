@@ -1,3 +1,6 @@
 <div class="container">
-  <app-dynamic-form [source]="formContent"></app-dynamic-form>
+  <app-dynamic-form
+    [source]="formContent"
+    (submit)="onSubmit($event)"
+  ></app-dynamic-form>
 </div>

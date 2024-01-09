@@ -72,12 +72,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup): void {
-    if (form.valid) {
-      this.submit.emit(form);
-      console.log(form.value);
-    } else {
-      console.log("Form doesn't send");
-    }
+    this.submit.emit(form);
   }
 
   resetFormValue() {
