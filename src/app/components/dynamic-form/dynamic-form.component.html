@@ -2,11 +2,13 @@
   #myForm="ngForm"
   (submit)="onSubmit(dynamicFormGroup)"
   [formGroup]="dynamicFormGroup"
-  class="row g-3 px-5 mt-3"
+  class="row g-3 px-5 mt-3 d-flex justify-content-center"
 >
   <ng-container *ngFor="let section of source.formControls">
-    <div class="row" *ngIf="section.fields">
-      <h3>{{ section.label }}</h3>
+    <div class="col-lg-4" *ngIf="section.fields">
+      <h3 class="text-nowrap">
+        {{ section.label }}
+      </h3>
       <ng-container *ngFor="let control of section.fields">
         <div
           class=""
@@ -91,7 +93,7 @@
       </ng-container>
     </div>
   </ng-container>
-  <div class="col-12">
+  <div class="d-flex justify-content-end col-lg-9">
     <button
       class="btn btn-secondary mx-2"
       (click)="resetFormValue()"

@@ -14,6 +14,6 @@ export class AppComponent {
   formContent = FormContent as DynamicFormBuilder;
 
   onSubmit(form: FormGroup): void {
-    if (form.valid) console.log(form.value, 'asdasdasd');
+    if (form.valid) console.log(form.value, 'app component');
   }
 }

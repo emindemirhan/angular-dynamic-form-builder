@@ -24,7 +24,7 @@ export class DynamicFormComponent implements OnInit {
   dynamicFormGroup: FormGroup = this.fb.group({});
 
   ngOnInit(): void {
-    if (this.source.formControls) {
+    if (this.source && this.source.formControls) {
       this.initializeForm();
     }
   }
